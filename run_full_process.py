@@ -14,26 +14,26 @@ def run_script(script_path, args=None):
 
 if __name__ == "__main__":
     # Créer le dossier csv4db s'il n'existe pas
-    csv_dir = "/home/tahtoh/RNCP-database/csv4db"
+    csv_dir = "/home/tahtoh/France_Competence_db/csv4db"
     os.makedirs(csv_dir, exist_ok=True)
 
     # Chemin du fichier Excel à traiter
     excel_file = "export-intelligence-artificielle.xlsx"
 
     # 1. Extraction et structuration depuis l'Excel
-    run_script("/home/tahtoh/RNCP-database/process_excel.py", [excel_file, csv_dir])
+    run_script("/home/tahtoh/France_Competence_db/process_excel.py", [excel_file, csv_dir])
 
     # 2. Scraping des organismes partenaires
-    run_script("/home/tahtoh/RNCP-database/scrape_organismes.py", [csv_dir])
+    run_script("/home/tahtoh/France_Competence_db/scrape_organismes.py", [csv_dir])
 
     # 3. Création de la base de données (si non existante)
-    db_path = "/home/tahtoh/RNCP-database/rncp_database.sqlite"
+    db_path = "/home/tahtoh/France_Competence_db/rncp_database.sqlite"
     if not os.path.exists(db_path):
-        run_script("/home/tahtoh/RNCP-database/create_database.py")
+        run_script("/home/tahtoh/France_Competence_db/create_database.py")
     else:
         print("La base de données existe déjà.")
 
     # 4. Peuplement de la base avec les CSV
-    run_script("/home/tahtoh/RNCP-database/populate_database.py", [csv_dir])
+    run_script("/home/tahtoh/France_Competence_db/populate_database.py", [csv_dir])
 
     print("Processus complet terminé avec succès.")

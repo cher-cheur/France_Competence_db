@@ -76,6 +76,6 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python populate_database.py <dossier_csv>")
         sys.exit(1)
-    db_path = "/home/tahtoh/RNCP-database/rncp_database.sqlite"
+    db_path = "/home/tahtoh/France_Competence_db/rncp_database.sqlite"
     csv_dir = sys.argv[1]
     populate_database(db_path, csv_dir)

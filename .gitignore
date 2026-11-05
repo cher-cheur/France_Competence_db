@@ -1,11 +1,12 @@
 # Fichiers/dossiers générés
-csv4db/
-organismes-partenaires/
-archive/
+data/
 *.sqlite
+*.sqlite.tmp
+*.zip
+*.part
 *.xlsx
 *.csv
 __pycache__/
 *.pyc
+.pytest_cache/
 .venv
-
